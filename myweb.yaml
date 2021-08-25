@@ -23,7 +23,7 @@ spec:
         app: myweb
     spec:
       containers:
-      - image: justmeandopensource/myweb:<TAG>
+      - image: syerwin/jenkins-myweb-tutorial:<TAG>
         imagePullPolicy: Always
         name: myweb
 
