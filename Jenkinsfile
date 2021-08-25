@@ -29,8 +29,8 @@ pipeline {
     stage('Deploy App to Kubernetes') {     
       steps {
         container('kubectl') {
-          withCredentials([file(credentialsId: 'mykubeconfig', variable: 'KUBECRED')]) {
-            sh 'cat $KUBECRED > ~/.kube/config'
+          withCredentials([file(credentialsId: 'mykubeconfig', variable: 'KUBECONFIG')]) {
+            sh 'printenv'
             sh 'sed -i "s/<TAG>/${BUILD_NUMBER}/" myweb.yaml'
             sh 'kubectl apply -f myweb.yaml'
           }
