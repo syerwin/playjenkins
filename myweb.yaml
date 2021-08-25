@@ -26,6 +26,8 @@ spec:
       - image: syerwin/jenkins-myweb-tutorial:<TAG>
         imagePullPolicy: Always
         name: myweb
+      imagePullSecrets:
+        - name: regcred
 
 ---
 apiVersion: v1
