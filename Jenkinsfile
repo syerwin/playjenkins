@@ -32,7 +32,6 @@ pipeline {
           withCredentials([file(credentialsId: 'mykubeconfig', variable: 'KUBECONFIG')]) {
             sh 'printenv'
             sh 'ifconfig'
-            sh 'ping cluster.local'
             sh 'sed -i "s/<TAG>/${BUILD_NUMBER}/" myweb.yaml'
             sh 'kubectl apply -f myweb.yaml'
           }
